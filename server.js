@@ -56,7 +56,7 @@ app.post("/login", (req, res) => {
   );
 
   if (!user) {
-    return res.send("Invalid username/email or password");
+    return res.redirect("/login.html?error=1");
   }
 
   res.redirect("/dashboard.html");

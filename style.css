@@ -85,6 +85,16 @@ a:hover {
   text-decoration: underline;
 }
 
+.error {
+  color: #b00020;
+  background-color: #f6d7dc;
+  padding: 8px;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
 .dashboard-box {
   background-color: #efe6de;
   padding: 15px;

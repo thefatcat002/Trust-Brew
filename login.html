@@ -11,6 +11,9 @@
   <div class="container">
     <h2>Login</h2>
 
+    <!-- Error message -->
+    <p id="error-msg" class="error">Invalid username/email or password</p>
+
     <form method="POST" action="/login">
       <label>Username or Email</label>
       <input type="text" name="username" required>
@@ -26,6 +29,13 @@
       <a href="signup.html">Sign up here</a>
     </p>
   </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has("error")) {
+      document.getElementById("error-msg").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
