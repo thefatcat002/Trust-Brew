@@ -23,18 +23,17 @@ app.post("/signup", (req, res) => {
   const { username, email, password, confirmPassword } = req.body;
 
   if (password !== confirmPassword) {
-    return res.send("Passwords do not match");
+    return res.redirect("/signup.html?error=password");
   }
 
   const usernameExists = users.find(user => user.username === username);
-  const emailExists = users.find(user => user.email === email);
-
   if (usernameExists) {
-    return res.send("Username already exists");
+    return res.redirect("/signup.html?error=username");
   }
 
+  const emailExists = users.find(user => user.email === email);
   if (emailExists) {
-    return res.send("Email already exists");
+    return res.redirect("/signup.html?error=email");
   }
 
   users.push({ username, email, password });

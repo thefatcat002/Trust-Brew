@@ -11,6 +11,9 @@
   <div class="container">
     <h2>Sign Up</h2>
 
+    <!-- Error message -->
+    <p id="error-msg" class="error"></p>
+
     <form method="POST" action="/signup">
       <label>Username</label>
       <input type="text" name="username" required>
@@ -32,6 +35,27 @@
       <a href="login.html">Login here</a>
     </p>
   </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const errorMsg = document.getElementById("error-msg");
+
+    if (params.has("error")) {
+      const errorType = params.get("error");
+
+      if (errorType === "username") {
+        errorMsg.textContent = "Username already exists";
+      } else if (errorType === "email") {
+        errorMsg.textContent = "Email already exists";
+      } else if (errorType === "password") {
+        errorMsg.textContent = "Passwords do not match";
+      }
+
+      errorMsg.style.display = "block";
+    } else {
+      errorMsg.style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
